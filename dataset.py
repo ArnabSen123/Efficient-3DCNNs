@@ -1,6 +1,6 @@
 #for kaggle
-import sys
-sys.path.append('/kaggle/working/Efficient-3DCNNs/')
+#import sys
+#sys.path.append('/kaggle/working/Efficient-3DCNNs/')
 
 from datasets.kinetics import Kinetics
 from datasets.ucf101 import UCF101
