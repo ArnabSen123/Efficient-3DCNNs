@@ -93,6 +93,12 @@ def make_dataset(root_path, annotation_path, subset, n_samples_for_each_video,
         idx_to_class[label] = name
 
     dataset = []
+    if subset == 'training':
+        root_path = os.path.join(root_path,'Train')
+    elif subset == 'validation':
+        root_path = os.path.join(root_path,'Validation')
+    else :
+        root_path = os.path.join(root_path,'Test')
     for i in range(len(video_names)):
         if i % 1000 == 0:
             print('dataset loading [{}/{}]'.format(i, len(video_names)))

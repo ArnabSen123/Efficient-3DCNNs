@@ -6,9 +6,10 @@ import subprocess
 def class_process(dir_path):
     if not os.path.isdir(dir_path):
         return
-
     for file_name in os.listdir(dir_path):
         video_dir_path = os.path.join(dir_path, file_name)
+        if not os.path.isdir(video_dir_path):
+            continue
         image_indices = []
         for image_file_name in os.listdir(video_dir_path):
             if '00' not in image_file_name:
