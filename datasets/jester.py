@@ -108,9 +108,9 @@ def make_dataset(root_path, annotation_path, subset, n_samples_for_each_video,
             print(video_path)
             continue
 
-        #n_frames_file_path = os.path.join(video_path, 'n_frames')
-        #n_frames = int(load_value_file(n_frames_file_path))
-        n_frames = 37
+        n_frames_file_path = os.path.join(video_path, 'n_frames')
+        n_frames = int(load_value_file(n_frames_file_path))
+        #n_frames = 37
         if n_frames <= 0:
             continue
 
