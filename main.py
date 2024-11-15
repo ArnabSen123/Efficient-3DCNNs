@@ -72,7 +72,8 @@ if __name__ == '__main__':
             crop_method = MultiScaleCornerCrop(
                 opt.scales, opt.sample_size, crop_positions=['c'])
         spatial_transform = Compose([
-            RandomHorizontalFlip(),
+            #For jester do not use random horizontal flip
+            #RandomHorizontalFlip(),
             #RandomRotate(),
             #RandomResize(),
             crop_method,
