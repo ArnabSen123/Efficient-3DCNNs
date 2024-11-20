@@ -1,12 +1,12 @@
 import torch
 from torch import nn
 
-from models import c3d, squeezenet, mobilenet, shufflenet, mobilenetv2, shufflenetv2, resnext, resnet
+from models import c3d, squeezenet, mobilenet, shufflenet, mobilenetv2, mobilenetv3, shufflenetv2, resnext, resnet
 
 
 def generate_model(opt):
     assert opt.model in ['c3d', 'squeezenet', 'mobilenet', 'resnext', 'resnet',
-                         'shufflenet', 'mobilenetv2', 'shufflenetv2']
+                         'shufflenet', 'mobilenetv2', 'mobilenetv3', 'shufflenetv2']
 
 
     if opt.model == 'c3d':
@@ -46,6 +46,12 @@ def generate_model(opt):
             num_classes=opt.n_classes,
             sample_size=opt.sample_size,
             width_mult=opt.width_mult)
+    elif opt.model == 'mobilenetv3':
+      from models.mobilenetv2 import get_fine_tuning_parameters
+      model = mobilenetv3.get_model(
+          num_classes=opt.n_classes,
+          sample_size=opt.sample_size,
+          width_mult=opt.width_mult)
     elif opt.model == 'resnext':
         assert opt.model_depth in [50, 101, 152]
         from models.resnext import get_fine_tuning_parameters
